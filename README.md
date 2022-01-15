@@ -1,2 +1,3 @@
 # vue-endgame
- Vue.js 끝장내기 인프런 강의 프로젝트
+
+인프런 - 캡틴판교 Vue.js 끝장내기
