@@ -26,7 +26,11 @@ export default {
       username: '',
       password: '',
       nickname: '',
+      logMessage: '',
     };
+  },
+  created() {
+    console.log(process.env.VUE_APP_API_URL);
   },
   methods: {
     async submitForm() {
