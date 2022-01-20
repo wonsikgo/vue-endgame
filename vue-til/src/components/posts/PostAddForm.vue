@@ -10,7 +10,10 @@
         <div>
           <label for="contents">Contents:</label>
           <textarea id="contents" type="text" rows="5" v-model="contents" />
-          <p class="validation-text warning isContentTooLong">
+          <p
+            class="validation-text warning isContentTooLong"
+            v-if="isContentsValid"
+          >
             Contents length must be less than 250
           </p>
         </div>
@@ -32,6 +35,11 @@ export default {
       contents: '',
       logMessage: '',
     };
+  },
+  computed: {
+    isContentsValid() {
+      return this.contents.length > 250;
+    },
   },
   methods: {
     async submitForm() {
