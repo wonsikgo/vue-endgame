@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { createPost } from '@/api/index';
 export default {
   data() {
     return {
@@ -33,9 +34,29 @@ export default {
     };
   },
   methods: {
-    submitForm() {},
+    async submitForm() {
+      try {
+        const postData = {
+          title: this.title,
+          contents: this.contents,
+        };
+        const { data } = await createPost(postData);
+
+        console.log(data);
+        this.$router.push('/main');
+      } catch (error) {
+        this.logMessage = error.response.data.message;
+      }
+    },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.form-wrapper .form {
+  width: 100%;
+}
+.btn {
+  color: white;
+}
+</style>
